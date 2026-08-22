@@ -5,7 +5,7 @@ void setup(){
     RCC_Init();
 
 }
-
+//this function is called continously
 void loop(){
     
 }
