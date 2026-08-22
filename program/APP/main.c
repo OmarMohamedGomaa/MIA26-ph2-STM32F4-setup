@@ -1,8 +1,11 @@
 #include "../MCAL/RCC/RCC.h"
-
+#define GPIO_PIN_0 0
+#define GPIO_PIN_1 1
+#define GPIO_PIN_2 2
 
 void setup(){
     RCC_Init();
+    
 
 }
 //this function is called continously
