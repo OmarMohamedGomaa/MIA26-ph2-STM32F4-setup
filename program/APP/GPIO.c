@@ -12,13 +12,17 @@ void GPIO_Init(unsigned int GPIO_Pin, unsigned int GPIO_Mode)
     {
         clear(GPIOA_MODER,GPIO_Pin*2 + 1 );
         clear(GPIOA_MODER,GPIO_Pin*2);
+
+        clear(PUPDR_A,GPIO_Pin*2 + 1 );
+        clear(PUPDR_A,GPIO_Pin*2);
+
     }
 }
 
 
 void GPIO_WritePin(unsigned int GPIO_Pin, int PinState)
 {
-    if (PinState) 
+    if (PinState == 1) 
     {
         set(GPIOA_ODR, GPIO_Pin); // Set the pin high
     } 
@@ -30,5 +34,7 @@ void GPIO_WritePin(unsigned int GPIO_Pin, int PinState)
 
 int GPIO_ReadPin(unsigned int GPIO_Pin)
 {
-    return (GPIOA_IDR & (1U << GPIO_Pin)) ? 1 : 0;
+    return ((GPIOA_IDR & (1U << GPIO_Pin)) != 0);
+    //  0001 0000
+    
 }
