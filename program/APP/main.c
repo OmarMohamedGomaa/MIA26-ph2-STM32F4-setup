@@ -9,9 +9,7 @@
 #define GPIO_PIN_INPUT_5 5
 #define GPIO_PIN_INPUT_6 6
 
-int pin4 ;
-int pin5 ;
-int pin6 ;
+
 
 void setup()
 {
@@ -25,28 +23,22 @@ void setup()
     GPIO_Init(GPIO_PIN_INPUT_6, INPUT);
 }
 
-void loop()
-{    
-    pin4 = GPIO_ReadPin(GPIO_PIN_INPUT_4);
-    pin5 = GPIO_ReadPin(GPIO_PIN_INPUT_5);
-    pin6 = GPIO_ReadPin(GPIO_PIN_INPUT_6);
-
-
-
-    GPIO_WritePin(GPIO_PIN_OUTPUT_1,pin4);  
-    GPIO_WritePin(GPIO_PIN_OUTPUT_2,pin5);  
-    GPIO_WritePin(GPIO_PIN_OUTPUT_3,pin6); 
-
+void loop() {    
+    GPIO_WritePin(GPIO_PIN_OUTPUT_4, GPIO_ReadPin(GPIO_PIN_INPUT_1)); 
+    GPIO_WritePin(GPIO_PIN_OUTPUT_5, GPIO_ReadPin(GPIO_PIN_INPUT_2)); 
+    GPIO_WritePin(GPIO_PIN_OUTPUT_6, GPIO_ReadPin(GPIO_PIN_INPUT_3)); 
 }
 
+int main(void) {
+    ADC_Init();
+    while(1) {
+        uint16_t value = ADC_Read();
+    }
 
-int main(void)
-{
-    setup();  //as you know the setups is called only once
-   
-     
-    while (1)
-    {
-        loop();   //loop is called continously so it's in the while(1)
+    setup();  
+
+    while (1) {
+        loop();   
     }
 }
+
