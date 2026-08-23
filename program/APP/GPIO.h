@@ -20,6 +20,8 @@
 #define GPIOA_ODR *((volatile unsigned int *)(0x40020000 + ODR_OFFSET))
 #define GPIOB_ODR *((volatile unsigned int *)(0x40020400 + ODR_OFFSET)) // probably not needed but just in case
 
+#define IDR_OFFSET 0x00000010
+#define GPIOA_IDR *((volatile unsigned int *)(0x40020000 + IDR_OFFSET))
 
 // Declare the GPIO functions
 void GPIO_Init(unsigned int GPIO_Pin, unsigned int GPIO_Mode);

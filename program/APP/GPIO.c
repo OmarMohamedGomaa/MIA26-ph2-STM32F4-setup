@@ -30,5 +30,5 @@ void GPIO_WritePin(unsigned int GPIO_Pin, int PinState)
 
 int GPIO_ReadPin(unsigned int GPIO_Pin)
 {
-    return (GPIOA_ODR & (1U << GPIO_Pin)) ? 1 : 0; // Return the state of the pin
+    return (GPIOA_IDR & (1U << GPIO_Pin)) ? 1 : 0;
 }
