@@ -1,16 +1,27 @@
 #include "../MCAL/RCC/RCC.h"
-#define GPIO_PIN_0 0
-#define GPIO_PIN_1 1
-#define GPIO_PIN_2 2
-
-void setup(){
+#include "GPIO.h"
+#define GPIO_PIN_INPUT_1 1
+#define GPIO_PIN_INPUT_2 2
+#define GPIO_PIN_INPUT_3 3
+#define GPIO_PIN_OUTPUT_4 4
+#define GPIO_PIN_OUTPUT_5 5
+#define GPIO_PIN_OUTPUT_6 6
+void setup()
+{
     RCC_Init();
-    
-
+    GPIO_Init(GPIO_PIN_INPUT_1, INPUT);
+    GPIO_Init(GPIO_PIN_INPUT_2, INPUT);
+    GPIO_Init(GPIO_PIN_INPUT_3, INPUT);
+    GPIO_Init(GPIO_PIN_OUTPUT_4, OUTPUT);
+    GPIO_Init(GPIO_PIN_OUTPUT_5, OUTPUT);
+    GPIO_Init(GPIO_PIN_OUTPUT_6, OUTPUT);
 }
-//this function is called continously
-void loop(){
-    
+
+void loop()
+{    
+    GPIO_WritePin(GPIO_PIN_OUTPUT_4, GPIO_ReadPin(GPIO_PIN_INPUT_1)); 
+    GPIO_WritePin(GPIO_PIN_OUTPUT_5,  GPIO_ReadPin(GPIO_PIN_INPUT_2)); 
+    GPIO_WritePin(GPIO_PIN_OUTPUT_6, GPIO_ReadPin(GPIO_PIN_INPUT_3)); 
 }
 
 int main(void)
