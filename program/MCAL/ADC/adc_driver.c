@@ -4,7 +4,7 @@ void ADC_Init(void) {
     RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;   //enable ADC1 clock
     ADC->CCR |= (1 << 16);                //prescaler/4
     ADC1->CR2 |= ADC_CR2_ADON;            //power on
-    ADC1->CR2 |= ADC_CR2_CONT;            //cont. mode
+    ADC1->CR2 |= ADCs_CR2_CONT;            //cont. mode
     ADC1->CR2 |= ADC_CR2_SWSTART;         //start convo
 }
 

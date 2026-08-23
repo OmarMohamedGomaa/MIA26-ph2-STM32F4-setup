@@ -1,4 +1,5 @@
 #include "../MCAL/RCC/RCC.h"
+#include "../MCAL/ADC/adc_driver.c"
 #include <stdio.h>
 #include "GPIO.h"
 
@@ -24,9 +25,9 @@ void setup()
 }
 
 void loop() {    
-    GPIO_WritePin(GPIO_PIN_OUTPUT_4, GPIO_ReadPin(GPIO_PIN_INPUT_1)); 
-    GPIO_WritePin(GPIO_PIN_OUTPUT_5, GPIO_ReadPin(GPIO_PIN_INPUT_2)); 
-    GPIO_WritePin(GPIO_PIN_OUTPUT_6, GPIO_ReadPin(GPIO_PIN_INPUT_3)); 
+    GPIO_WritePin(GPIO_PIN_OUTPUT_1, GPIO_ReadPin(GPIO_PIN_INPUT_4)); 
+    GPIO_WritePin(GPIO_PIN_OUTPUT_2, GPIO_ReadPin(GPIO_PIN_INPUT_5)); 
+    GPIO_WritePin(GPIO_PIN_OUTPUT_3, GPIO_ReadPin(GPIO_PIN_INPUT_6)); 
 }
 
 int main(void) {
