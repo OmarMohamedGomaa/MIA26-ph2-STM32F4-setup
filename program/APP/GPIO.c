@@ -3,8 +3,16 @@
 // In the header file define a macro for 
 void GPIO_Init(unsigned int GPIO_Pin, unsigned int GPIO_Mode)
 {
-    // Configure the GPIO pin based on the provided configuration
-    // This is a placeholder for the actual implementation
+    if(GPIO_Mode == OUTPUT)
+    {
+        clear(GPIOA_MODER,GPIO_Pin*2 + 1 );
+        set(GPIOA_MODER,GPIO_Pin*2);
+    }
+    else if (GPIO_Mode == INPUT)
+    {
+        clear(GPIOA_MODER,GPIO_Pin*2 + 1 );
+        clear(GPIOA_MODER,GPIO_Pin*2);
+    }
 }
 
 
