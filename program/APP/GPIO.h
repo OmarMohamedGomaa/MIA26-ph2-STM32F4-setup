@@ -11,17 +11,18 @@
 #define ANALOG 3
 
 // // Define the base address for GPIOA and the offsets for MODER and ODR registers
-#define MODER_OFFSET 0x00000000
+#define MODER_OFFSET 0x00
 #define GPIOA_MODER *((volatile unsigned int *)(0x40020000 + MODER_OFFSET))
 #define GPIOB_MODER *((volatile unsigned int *)(0x40020400 + MODER_OFFSET)) // probably not needed but just in case
 
-#define PUPDR_A *((volatile unsigned int *)(0x40020000 + 0x0C ))
+
+#define PUPDR_A *((volatile unsigned int *)(0x40020000 + 0x0C ))//Pullup pulldown register
                    
-#define ODR_OFFSET 0x00000014
+#define ODR_OFFSET 0x14
 #define GPIOA_ODR *((volatile unsigned int *)(0x40020000 + ODR_OFFSET))
 #define GPIOB_ODR *((volatile unsigned int *)(0x40020400 + ODR_OFFSET)) // probably not needed but just in case
 
-#define IDR_OFFSET 0x00000010
+#define IDR_OFFSET 0x10
 #define GPIOA_IDR *((volatile unsigned int *)(0x40020000 + IDR_OFFSET))
 
 // Declare the GPIO functions
